@@ -7,7 +7,7 @@
 	{
 		protected $host			= "localhost";
 		protected $username		= "root";
-		protected $password		= "";
+		protected $password		= "null";
 		protected $db 			= "sms";
 		public $conn;
 
@@ -56,4 +56,16 @@
 
 			return $this->data;
 		}
+	}
+
+	class Class extends Database{
+		public $class_name;
+		public $student_id;
+		public $teacher_id;
+
+		public function addClass($c_name,$std_id,$t_id){
+			$sql = "INSERT INTO class (class_name,student_id, teacher_id) VALUES ('$c_name','$std_id','$t_id')";
+			$this->conn->query($sql);
+		}
+
 	}
